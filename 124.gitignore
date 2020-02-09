@@ -136,7 +136,7 @@ int  main（）{
     out1 = q1（d）;
     out2 = q2（h）;
     scanf（“％s％s ”，f，g）;
-    while（scanf（“％s％s ”，f，g）！= EOF）
+    而（scanf（“％s％s”，f，g）！=  0）
 	 {
     	
         if（strcmp（g，“看看”）！= 0）
