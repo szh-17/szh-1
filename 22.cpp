@@ -1,14 +1,14 @@
 #include<stdio.h>
 #include<string.h>
 
-char chinese1[100][100] = {"Áã", "Ò»", "¶ş", "Èı", "ËÄ", "Îå", "Áù", "Æß", "°Ë", "¾Å", "Ê®"};
+char chinese1[100][100] = {"é›¶", "ä¸€", "äºŒ", "ä¸‰", "å››", "äº”", "å…­", "ä¸ƒ", "å…«", "ä¹", "å"};
 int q1(char a[]) {
     int i;
     for (i = 0; i < 11; i++) {if (strcmp(chinese1[i], a) == 0)    return i;  
     }
     return 0;
 }
-char chinese2[100][100] = {"Áã", "Ò»", "¶ş", "Èı", "ËÄ", "Îå", "Áù", "Æß", "°Ë", "¾Å", "Ê®"};
+char chinese2[100][100] = {"é›¶", "ä¸€", "äºŒ", "ä¸‰", "å››", "äº”", "å…­", "ä¸ƒ", "å…«", "ä¹", "å"};
 int q2(char a[]) {
     int i;
     for (i = 0; i < 11; i++) {if (strcmp(chinese2[i], a) == 0)     return i;
@@ -19,17 +19,17 @@ int q2(char a[]) {
 int compare1(char a[], char b[], char c[]) {
     int x;
     x = q1(a);
-    if (strcmp(a, "´óÓÚ") == 0) printf("%s", b);
-    else if (strcmp(a, "Ğ¡ÓÚ") == 0) 
+    if (strcmp(a, "å¤§äº") == 0) printf("%s", b);
+    else if (strcmp(a, "å°äº") == 0) 
 	printf("%s", c);
 }
 
 int compare2(int n, char a[], char b[]) {
     int sum;
     sum = q1(b);
-    if (strcmp(a, "Ôö¼Ó") == 0)
+    if (strcmp(a, "å¢åŠ ") == 0)
         return n + sum;
-    if (strcmp(a, "¼õÉÙ") == 0)
+    if (strcmp(a, "å‡å°‘") == 0)
         return n - sum;
     
 }
@@ -40,10 +40,10 @@ int main() {
     out1 = q1(d);
     out2 = q2(h);
     scanf("%s %s", f, g);
-    while (scanf("%s %s", f, g) != EOF)
+    while (scanf("%s %s", f, g) != 0)
 	 {
     	
-        if (strcmp(g, "¿´¿´") != 0) 
+        if (strcmp(g, "çœ‹çœ‹") != 0) 
 		{
             scanf("%s", k);
             out1 = compare2(out1, j, k);
