@@ -40,7 +40,7 @@ int main() {
     out1 = q1(d);
     out2 = q2(h);
     scanf("%s %s", f, g);
-    while (scanf("%s %s", f, g) != 0)
+    while (scanf("%s %s", f, g) != EOF )
 	 {
     	
         if (strcmp(g, "看看") != 0) 
