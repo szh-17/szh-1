@@ -1,92 +1,169 @@
-
 #include<stdio.h>
 #include<string.h>
-int num(char* s);//½«ºº×Ö×ªÎªÊý×Ö
-int change(char* s);//½«µ¥¸öºº×Ö×ª»»ÎªÊý×Ö
-char *extract(char* a, char* b);//ÌáÈ¡¡°Ê®¡±×ÖÇ°ºóµÄÊý×Ö
-char chinese[11][3] = { "Áã","Ò»","¶þ","Èý","ËÄ","Îå","Áù","Æß","°Ë","¾Å","Ê®" };
+#include <string>
+#include<iostream>
+#include<math.h>
+using namespace std;
+int changee(char i[10]);
+void changec(int i);
 int main()
 {
-    char s[10];
-    char sp[10];
-    int i,caibu;
-    scanf("%s", s);
-    if (strcmp(s, "ÕûÊý") == 0)
-    {
-        scanf("%s", s);
-        strcpy(sp, s);
-        for (i = 0; i < 2; i++)
-            scanf("%s", s);
-        caibu = num(s);
-        scanf("%s", s);
-        while (strcmp(s, sp) == 0)
-        {
-            scanf("%s", s);
-            if (strcmp(s, "Ôö¼Ó") == 0)
-            {
-                scanf("%s", s);
-                caibu += num(s);
-            }
-            else if (strcmp(s, "¼õÉÙ") == 0)
-            {
-                scanf("%s", s);
-                caibu -= num(s);
-            }
-            scanf("%s", s);
-        }
-        scanf("%s", s);
-        if (caibu <= 10)
-            printf("%s", chinese[caibu]);
-        else if (caibu > 10 && caibu < 20)
-            printf("Ê®%s", chinese[caibu - 10]);
-        else if (caibu % 10 == 0)
-            printf("%sÊ®", chinese[caibu / 10]);
-        else
-            printf("%sÊ®%s", chinese[caibu / 10], chinese[caibu % 10]);
-    }
-    else
-        printf("error");
-    return 0;
+	char c[10],c7[100],c10[100],a1[10], a2[10], a31[10],a32[10], a4[10], b1[10], b2[10], b3[10], c1[10], c2[10], c3[10], c4[10], c5[10], c6[10], c8[10], c9[10];
+	cin >> a1 >> a2 >> a31 >> a4;
+	int total = changee(a4);
+	int temp=0,temp_s=0,z=0;
+	for (int j=0; j < 100; j++) {
+		cin >> b1;
+		if (strcmp(b1, "çœ‹çœ‹") == 0) {
+			break;
+		}
+		for (int i = 0; 100; i++) {
+			cin >> b2 >> b3;
+			if (strcmp(b2, "å¢žåŠ ") == 0) {
+				total = total + changee(b3);
+				break;
+			}
+			if (strcmp(b2, "å‡å°‘") == 0) {
+				total = total - changee(b3);
+				break;
+			}
+
+		}
+	}
+	cin >> c>>c1 >> c2 >> c3 >> c4 >> c5 >> c6 >> c7 >> c8 >> c9 >> c10;
+	if(abs(total)<10){
+		if(total<0){
+			printf("è´Ÿ"); 
+			total=abs(total);
+			changec(total);
+		}
+		else{
+			changec(total);
+		}
+	}
+	else{
+		if(total<0){
+			printf("è´Ÿ"); 
+			total=abs(total);
+			while(total>0){
+				temp_s=total%10;
+				temp=temp*10+temp_s;
+				total=total/10;
+			}
+			while(temp>0){
+				changec(temp%10);
+				temp=temp/10;
+			}
+			printf("\n");
+		}
+		else{
+			while(total>0){
+				temp=temp*10+total%10;;
+				total=total/10;
+			}
+			while(temp>0){
+				changec(temp%10);
+				temp=temp/10;
+			}
+			printf("\n");
+		}
+	}
+	if (total > changee(c4)) {
+		cout << c7 << endl;
+	}
+	else {
+		cout << c10 << endl;
+	}
 }
-int num(char* s)
-{
-    int i,j;
-    int n;
-    char buffer[5] = "";
-    if (strlen(s) == 2)//´¦Àí0-9µÄºº×Ö
-    {
-        j=change(s);
-    }
-    else if (strlen(s) == 4)//´¦Àí10-19ÒÔ¼°Ê®µÄ±¶ÊýµÄºº×Ö
-    {
-        strcpy(buffer,extract(buffer, s));
-        if (strcmp(buffer, "Ê®") == 0)//´¦Àí10-19µÄºº×Ö
-        {
-            j = 10 + change(extract(buffer,s+2));
-        }
-        else//´¦ÀíÊ®µÄ±¶Êý
-        {
-            j = change(buffer) * 10;
-        }
-    }
-    else//´¦Àí¼¸Ê®¼¸µÄºº×Ö
-    {
-        j = change(extract(buffer, s)) * 10 + change(extract(buffer, s + 4));
-    }
-    return j;
+void changec(int i) {
+	if (i == 0)
+	{
+		printf("é›¶");
+	}
+	if (i == 1)
+	{
+		printf("ä¸€");
+	}
+	if (i == 2)
+	{
+		printf("äºŒ");
+	}
+	if (i == 3)
+	{
+		printf("ä¸‰");
+	}
+	if (i == 4)
+	{
+		printf("å››");
+	}
+	if (i == 5)
+	{
+		printf("äº”");
+	}
+	if (i == 6)
+	{
+		printf("å…­");
+	}
+	if (i == 7)
+	{
+		printf("ä¸ƒ");
+	}
+	if (i == 8)
+	{
+		printf("å…«");
+	}
+	if (i == 9)
+	{
+		printf("ä¹");
+	}
+	if (i == 10)
+	{
+		printf("å");
+	}
 }
-int change(char* s)
-{
-    int i;
-    for (i = 0; i < 11; i++)
-    {
-        if (strcmp(s, chinese[i]) == 0)
-            return i;
-    }
-}
-char *extract(char* a, char* b)
-{
-    a[0] = b[0];
-    a[1] = b[1];
-    return a;
+int changee(char i[10]) {
+	if (strcmp(i, "é›¶") == 0)
+	{
+		return 0;
+	}
+	if (strcmp(i, "ä¸€") == 0)
+	{
+		return 1;
+	}
+	if (strcmp(i, "äºŒ") == 0)
+	{
+		return 2;
+	}
+	if (strcmp(i, "ä¸‰") == 0)
+	{
+		return 3;
+	}
+	if (strcmp(i, "å››") == 0)
+	{
+		return 4;
+	}
+	if (strcmp(i, "äº”") == 0)
+	{
+		return 5;
+	}
+	if (strcmp(i, "å…­") == 0)
+	{
+		return 6;
+	}
+	if (strcmp(i, "ä¸ƒ") == 0)
+	{
+		return 7;
+	}
+	if (strcmp(i, "å…«") == 0)
+	{
+		return 8;
+	}
+	if (strcmp(i, "ä¹") == 0)
+	{
+		return 9;
+	}
+	if (strcmp(i, "å") == 0)
+	{
+		return 10;
+	}
 }
